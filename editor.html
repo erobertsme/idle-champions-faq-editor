@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Idle Champions Community FAQ</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" integrity="sha256-2k1KVsNPRXxZOsXQ8aqcZ9GOOwmJTMoOB5o5Qp1d6/s=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="assets/icons.css">
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style type="text/css">
+    </style>
+  </head>
+
+  <body>
+    <section class="section">
+      <div class="container" id="content">
+
+        <div class="box" v-for="question in questions">
+          <div class="media-content">
+            <div class="content">
+              <div class="hero is-small">
+                <div class="hero-body">
+                  <h3 class="title">{{ question.question }}</h3>
+                  <h5 class="subtitle">{{ question.category }}</h5>
+                </div>
+              </div>
+              <p>{{ question.answer }}</p>
+              <div class="level-right"><button class="button is-small"><span class="icon-edit"></span></button></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="box">
+          <label class="label">Question</label>
+          <input class="input" type="text" name="question" placeholder="Question" v-model="newQuestion.question">
+          <label class="label">Answer</label>
+          <textarea class="textarea" type="text" name="answer" placeholder="Answer" v-model="newQuestion.answer"></textarea>
+          <label class="label">Category</label>
+          <div class="select">
+            <select name="category" v-model="newQuestion.category">
+              <option v-for="category in categories" :value="category">{{ category }}</option>
+            </select>
+          </div>
+          <button class="button" @click="addQuestion">Add</button>
+        </div>
+
+        <label class="label" style="margin-top: 40px;">Output</label>
+        <button class="button is-success" @click="outputData">Generate Data</button>
+        <textarea class="textarea" name="output" rows="8">{{ output }}</textarea>
+
+      </div><!-- End Container -->
+
+    </section>
+  <!-- <script type="text/javascript" src="questions.js"></script> -->
+  <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>
