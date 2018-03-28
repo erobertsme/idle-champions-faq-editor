@@ -26,10 +26,15 @@ var data = {
     }
   ]
 };
+
 new Vue({
   el: '#content',
   data: {
-    newQuestion: {"category": this.category, "question": this.question, "answer": this.answer},
+    newQuestion: {
+      "category": this.category,
+      "question": this.question,
+      "answer": this.answer
+    },
     questions: data.questions,
     output: ""
   },

@@ -15,17 +15,20 @@
     <section class="section">
       <div class="container" id="content">
 
-        <div class="box" v-for="question in questions">
-          <div class="media-content">
-            <div class="content">
-              <div class="hero is-small">
-                <div class="hero-body">
-                  <h3 class="title">{{ question.question }}</h3>
-                  <h5 class="subtitle">{{ question.category }}</h5>
+        <div class="box" v-for="each in categorized">
+          <h1 class="is-size-2">{{each[0].category}}</h1>
+          <div class="box" v-for="each in each">
+            <div class="media-content">
+              <div class="content">
+                <div class="hero is-small">
+                  <div class="hero-body">
+                    <h3 class="title">{{ each.question }}</h3>
+                    <h5 class="subtitle">{{ each.category }}</h5>
+                  </div>
                 </div>
+                <p>{{ each.answer }}</p>
+                <div class="level-right"><button class="button is-small"><span class="icon-edit"></span></button></div>
               </div>
-              <p>{{ question.answer }}</p>
-              <div class="level-right"><button class="button is-small"><span class="icon-edit"></span></button></div>
             </div>
           </div>
         </div>
