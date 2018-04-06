@@ -33,24 +33,25 @@ Vue.component('question',{
     <div class="box" v-if="isEditable">
       <div class="media-content">
         <div class="content">
-
-          <div class="hero is-small">
-            <div class="hero-body">
-              <div class="field">
-                <div class="control">
-                  <input class="input" type="text" :value="question" @input="this.question = $event.target.value"></input>
+          <form>
+            <div class="hero is-small">
+              <div class="hero-body">
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" v-model="question" @submit="$emit('update')"></input>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="field">
-            <div class="control">
-              <textarea class="textarea" :value="answer" style="height: fit-content;"></textarea>
+            <div class="field">
+              <div class="control">
+                <textarea class="textarea" v-model="answer" @submit="$emit('update')"></textarea>
+              </div>
             </div>
-          </div>
 
-          <div class="level-right"><button class="button is-success is-small" type="submit" @click="editQuestion(this.isEditable)">Save</button></div>
+            <div class="level-right"><button class="button is-success is-small" type="submit" @submit.prevent @click="editQuestion(this.isEditable)">Save</button></div>
+          </form>
         </div>
       </div>
     </div>
