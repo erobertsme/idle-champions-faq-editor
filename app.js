@@ -1,3 +1,4 @@
+// Test data
 var data = {
   questions: [
     {
@@ -50,7 +51,7 @@ Vue.component('question',{
               </div>
             </div>
 
-            <div class="level-right"><button class="button is-success is-small" type="submit" @submit.prevent @click="editQuestion(this.isEditable)">Save</button></div>
+            <div class="level-right"><button class="button is-success is-small" type="submit" @submit.prevent="onSubmit" @click="editQuestion(this.isEditable)">Save</button></div>
           </form>
         </div>
       </div>
@@ -89,6 +90,9 @@ Vue.component('question',{
       else {
         return this.isEditable = false
       }
+    },
+    onSubmit() {
+      console.log('FUCK');
     }
   }
 })
