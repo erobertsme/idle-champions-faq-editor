@@ -92,7 +92,7 @@ Vue.component('question',{
       }
     },
     onSubmit() {
-      console.log('FUCK');
+      console.log('WHY DOES THIS NOT WORK?!');
     }
   }
 })
